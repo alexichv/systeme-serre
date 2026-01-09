@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container Gauche - Météo -->
+    <div class="container-weather">
+        <h2>Météo</h2>
+        <div id="weatherContent">
+            <div class="weather-item">☀️ Ensoleillé</div>
+            <div class="weather-item">Température: 22°C</div>
+            <div class="weather-item">Humidité: 65%</div>
+            <div class="weather-item">Vent: 10 km/h</div>
+        </div>
+    </div>
+
+    <!-- Container Droite - Date/Heure/Saison -->
+    <div class="container-info">
+        <h2>Informations</h2>
+        <div id="infoContent">
+            <div class="info-item"><strong id="dateDisplay">--/--/----</strong></div>
+            <div class="info-item"><strong id="timeDisplay">--:--:--</strong></div>
+            <div class="info-item">Saison: <span id="seasonDisplay">---</span></div>
+        </div>
+    </div>
+
+    <!-- Container Historique - Bas -->
+    <div class="container-history">
+        <h2>Historique</h2>
+        <div id="historyContent">
+            <div class="history-item">En attente de modifications...</div>
+        </div>
+    </div>
+
+    <!-- Container Central - Serre -->
+    <div class="container">
+        <h1>Ma Serre Connectée</h1>
+
+        <!-- Section Volets -->
+        <div class="section">
+            <h2>Contrôle des Volets</h2>
+            <div class="buttons-group">
+                <button class="btn-open" onclick="ouvrirVolets()">Ouvrir les volets</button>
+                <button class="btn-close" onclick="fermerVolets()">Fermer les volets</button>
+            </div>
+        </div>
+
+        <!-- Section Température (pleine largeur) -->
+        <div class="section section-full-width">
+            <h2>Gestion de la Température</h2>
+            <div class="temperature-control">
+                <div class="slider-container">
+                    <input type="range" id="temperatureSlider" min="5" max="50" value="20" oninput="updateTemperatureDisplay()" onchange="recordTemperatureChange()">
+                </div>
+                <div class="temperature-display">
+                    <div id="tempValue">20°C</div>
+                    <span>Plage: 5°C à 50°C</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteneur pour les deux humidités côte à côte -->
+        <div class="humidity-row">
+            <!-- Section Humidité de l'Air -->
+            <div class="section section-humidity">
+                <h2>Humidité de l'Air</h2>
+                <div class="humidity-control">
+                    <div class="slider-container">
+                        <input type="range" id="humidityAirSlider" min="0" max="100" value="60" oninput="updateHumidityAirDisplay()" onchange="recordHumidityAirChange()">
+                    </div>
+                    <div class="humidity-display">
+                        <div id="humidityAirValue">60%</div>
+                        <span>Plage: 0% à 100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Humidité de la Terre -->
+            <div class="section section-humidity">
+                <h2>Humidité de la Terre</h2>
+                <div class="humidity-control">
+                    <div class="slider-container">
+                        <input type="range" id="humiditySoilSlider" min="0" max="100" value="50" oninput="updateHumiditySoilDisplay()" onchange="recordHumiditySoilChange()">
+                    </div>
+                    <div class="humidity-display">
+                        <div id="humiditySoilValue">50%</div>
+                        <span>Plage: 0% à 100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
